@@ -8,7 +8,6 @@ Gem::Specification.new do |s|
                   "This is an implementation of the User Interaction testing pattern."
   s.authors     = ["Dane Andersen"]
   s.email       = ['dane.andersen@gmail.com']
-  s.files       = ["lib/hola.rb"]
   s.homepage    = "https://github.com/daneandersen/experience"
   s.license       = 'MIT'
 
