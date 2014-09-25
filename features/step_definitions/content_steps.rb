@@ -1,13 +1,14 @@
 Given(/^there is content in the application$/) do
   class Tutorial
-    include Experience
-
+    extend Experience
     content(:headline, :id => 'headline')
   end
 end
 
 When(/^I read the content$/) do
-  @content = Tutorial.headline
+  Tutorial.read do |tutorial|
+    @content = tutorial.headline
+  end
 end
 
 Then(/^I will know what it says$/) do
