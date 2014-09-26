@@ -1,23 +1,21 @@
-Gem::Specification.new do |s|
-  s.name        = 'experience'
-  s.version     = '0.0.0'
-  s.platform = Gem::Platform::RUBY
-  s.date        = '2014-09-12'
-  s.summary     = "Test the user experience"
-  s.description = "Test applications for the user experience. "\
-                  "This is an implementation of the User Interaction testing pattern."
-  s.authors     = ["Dane Andersen"]
-  s.email       = ['dane.andersen@gmail.com']
-  s.homepage    = "https://github.com/daneandersen/experience"
-  s.license       = 'MIT'
+Gem::Specification.new do |spec|
+  spec.name          = "experience"
+  spec.version       = Experience::VERSION
+  spec.authors       = ["Dane Andersen"]
+  spec.email         = ["dane.andersen@gmail.com"]
+  spec.summary       = %q{Test the user experience}
+  spec.description   = %q{Test applications for the user experience.
+This is an implementation of the User Interaction testing pattern.}
+  spec.homepage      = "https://github.com/daneandersen/experience"
+  spec.license       = "MIT"
 
-  s.rubyforge_project = "experience"
+  spec.rubyforge_project = "experience"
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
+  spec.files         = `git ls-files -z`.split("\x0")
+  spec.test_files    = spec.files.grep(%r{^(spec|features)/})
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.require_paths = ["lib"]
 
-  s.add_development_dependency 'rspec', '~> 3.0'
-  s.add_development_dependency 'cucumber', '~> 1.3'
+  spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "cucumber", "~> 1.3"
 end
