@@ -1,5 +1,1 @@
-<%
-std_opts = "--color"
-%>
-
-default: <%= std_opts %>
+acceptance: --color

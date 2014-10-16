@@ -12,16 +12,16 @@ module Experience
   private
 
   def platform
-    @platform || Platform.default
+    @platform || DefaultPlatform.default
   end
 end
 
-class Platform
-  def self.register_default platform
+class DefaultPlatform
+  def self.register platform
     @default = platform
   end
 
   def self.default
-    @default or fail 'No platform specified. To set a default, call Platform.register_default'
+    @default or fail 'No platform specified. To set a default, call DefaultPlatform.register'
   end
 end

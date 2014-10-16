@@ -1,8 +1,12 @@
 require 'rubygems'
 require 'bundler'
+require 'rake'
 require 'rspec/core/rake_task'
 require 'cucumber'
 require 'cucumber/rake/task'
+require 'experience'
+require_relative 'features/support/stub_platform'
+require_relative 'lib/experience/features'
 
 Bundler::GemHelper.install_tasks
 
@@ -12,8 +16,10 @@ RSpec::Core::RakeTask.new(:spec) do |spec|
 end
 task :spec
 
-Cucumber::Rake::Task.new(:features, "Run features") do |t|
-  t.profile = "default"
+
+Cucumber::Rake::Task.new(:acceptance, "Run features") do |t|
+  t.profile = 'acceptance'
+  t.cucumber_opts = "--color #{features_directory}"
 end
 
 desc 'Run all specs and cukes'
